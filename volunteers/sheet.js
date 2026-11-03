@@ -81,8 +81,7 @@
         `<tr><th scope="row">${txt(r.label)}</th>${r.html ? `<td>${r.html}</td>` : '<td class="none">—</td>'}</tr>`).join('')}</tbody></table></section>`;
       const colsHTML = cols.map(c => c.filter(k => blocks[k] && blocks[k].length).map(blk).join('')).filter(Boolean)
         .map(h => `<div class="bcol">${h}</div>`).join('');
-      return `<p class="wk-date"><b>${txt(dates[cur])}</b>${notes[cur] ? `<small>${txt(notes[cur])}</small>` : ''}</p>
-        <div class="blocks">${colsHTML}</div>`;
+            return `<div class="blocks">${colsHTML}</div>`;
     }
 
      const STACK = ['特殊出席', '請假'];                         // 全部週次：這兩類合成一格，一人一行
