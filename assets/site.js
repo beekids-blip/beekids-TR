@@ -68,7 +68,7 @@
   document.body.insertAdjacentHTML('afterbegin',
     `<a class="skip" href="#main">跳到主要內容</a>
      <header class="site-header"><div class="bar">
-       <a class="brand" href="${href('index.html')}"><img src="${href('assets/favicon.svg')}" alt="" width="36" height="36">Bee Kids</a>
+       <a class="brand" href="${href('index.html')}"><img src="${href('assets/img/純LOGO_透明.png')}" alt="Bee Kids">Bee Kids</a>
        <button class="menu-btn" aria-expanded="false" aria-controls="nav">選單</button>
        <nav id="nav" aria-label="主選單"><ul>${NAV.map(top).join('')}</ul></nav>
      </div></header>`);
