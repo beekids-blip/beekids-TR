@@ -76,7 +76,7 @@
   btn.addEventListener('click', () => btn.setAttribute('aria-expanded', nav.classList.toggle('open')));
 
   // Favicon
-  document.head.insertAdjacentHTML('beforeend', `<link rel="icon" href="${href('assets/favicon.svg')}">`);
+  document.head.insertAdjacentHTML('beforeend', `<link rel="icon" href="${href('assets/img/純LOGO_透明.png')}">`);
 
   const main = document.querySelector('main.page');
   const article = main.querySelector('article');
