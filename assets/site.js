@@ -9,6 +9,7 @@
   const NAV = [
     { t: '首頁', p: 'index.html' },
     { t: '義工相關', p: 'volunteers/index.html', c: [
+      { t: '出席請假', p: 'volunteers/service.html' },
       { t: '義工守則', p: 'volunteers/rules.html' },
       { t: '月會課程紀錄', p: 'volunteers/monthly-meeting.html' },
     ]},
