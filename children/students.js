@@ -48,11 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 3. 切換下拉選單時，僅更新 #studentList 內部的學生名單，不影響外部結構
+// 3. 監聽下拉選單變更
   if (gradeSelect) {
     gradeSelect.addEventListener('change', (e) => {
       const selectedGrade = e.target.value;
-      
-      // 只清空學生名單列表容器內部的元素
       listContainer.innerHTML = '';
 
       if (!selectedGrade) {
@@ -70,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      // 篩選對應年級的學生
       const students = allStudentsData.filter(s => s.grade === selectedGrade);
 
       if (students.length === 0) {
@@ -77,16 +77,12 @@ document.addEventListener('DOMContentLoaded', () => {
         statusText.textContent = '此年級暫無學生資料。';
       } else {
         statusText.style.display = 'none';
+
+        // 提取所有姓名，並用「、」分隔呈現成一整段文字
+        const namesString = students.map(s => s.name).join('、');
         
-        // 生成符合全站 site.css 風格的 li > a 結構
-        students.forEach(s => {
-          const li = document.createElement('li');
-          const a = document.createElement('a');
-          a.href = 'javascript:void(0)';
-          a.innerHTML = `${s.name}<small>${selectedGrade}</small>`;
-          li.appendChild(a);
-          listContainer.appendChild(li);
-        });
+        // 直接呈現在容器內
+        listContainer.textContent = namesString;
       }
     });
   }
