@@ -76,6 +76,9 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
 .links a{display:flex;justify-content:space-between;gap:16px;padding:12px 4px;text-decoration:none;font-weight:500}
 .links a:hover{background:var(--honey-soft)}
 .links small{color:var(--muted);font-weight:400}
+   .split{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;margin:1.2rem 0}
+   .split-text{display:flex;align-items:center;justify-content:center;text-align:center;background:var(--honey-soft);padding:28px 20px}
+
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:1.4rem 0}
 .card{display:block;padding:16px 20px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);text-decoration:none}
 .card:hover{border-color:var(--honey);background:var(--honey-soft)}
