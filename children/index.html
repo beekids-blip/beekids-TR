@@ -5,60 +5,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>兒童相關｜Bee Kids</title>
 <link rel="stylesheet" href="../assets/site.css">
-<script defer src="assets/site.js"></script></body>
-</html>
+<script defer src="../assets/site.js"></script>
 </head>
 <body>
 <main id="main" class="page">
 <article class="prose">
 
   <h1>兒童相關</h1>
-        <div class="container">
-        
-        <!-- 學生列表與更新時間 -->
         <div class="section-header">
-        <h2>學生列表<span class="update-time">更新時間：2026/4/14</span></h2>
+        <h2>學生列表</h2>
+        <span class="update-time">更新時間：2026/4/14</span>
         </div>
         
-        <ul class="links row">
-        <li><a class="grade-btn" data-grade="幼幼">幼幼<small>點擊查看名單</small></a></li>
-        <li><a class="grade-btn" data-grade="幼小">幼小<small>點擊查看名單</small></a></li>
-        <li><a class="grade-btn" data-grade="幼中">幼中<small>點擊查看名單</small></a></li>
-        <li><a class="grade-btn" data-grade="幼大">幼大<small>點擊查看名單</small></a></li>
-        <li><a class="grade-btn" data-grade="一年級">一年級<small>點擊查看名單</small></a></li>
-        <li><a class="grade-btn" data-grade="二年級">二年級<small>點擊查看名單</small></a></li>
-        <li><a class="grade-btn" data-grade="三年級">三年級<small>點擊查看名單</small></a></li>
-        <li><a class="grade-btn" data-grade="四年級">四年級<small>點擊查看名單</small></a></li>
-        <li><a class="grade-btn" data-grade="五年級">五年級<small>點擊查看名單</small></a></li>
-        <li><a class="grade-btn" data-grade="六年級">六年級<small>點擊查看名單</small></a></li>
-        </ul>
-          
+        <!-- 年級下拉選單 -->
+        <div class="grade-select-group" style="margin-bottom: 1.2rem;">
+        <label for="gradeSelect" style="font-weight: bold; margin-right: 0.5rem;">選擇年級：</label>
+        <select id="gradeSelect" class="grade-dropdown" style="padding: 0.5rem 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #ccc; background: #fff; cursor: pointer;">
+        <option value="">-- 請選擇年級 --</option>
+        <option value="幼幼">幼幼</option>
+        <option value="幼小">幼小</option>
+        <option value="幼中">幼中</option>
+        <option value="幼大">幼大</option>
+        <option value="一年級">一年級</option>
+        <option value="二年級">二年級</option>
+        <option value="三年級">三年級</option>
+        <option value="四年級">四年級</option>
+        <option value="五年級">五年級</option>
+        <option value="六年級">六年級</option>
+        <option value="低出席">低出席</option>
+        </select>
+        </div>
+        
+        <!-- 動態顯示學生名單容器 -->
         <div class="student-list-box" id="studentBox">
         <h3 id="currentGradeTitle" style="margin-top: 0;">請選擇年級</h3>
-        <p id="studentStatus" style="color: #666;">點擊上方年級按鈕即可載入名單。</p>
+        <p id="studentStatus" style="color: #666;">請從上方下拉選單選擇年級查看名單。</p>
         <ul class="student-tags" id="studentList"></ul>
         </div>
-        
-        <h2>人數與出席統計</h2>
-        <dl class="facts">
-        <dt>人數統計<small>（資料庫）</small></dt>
-        <dd>小學 105 人 ｜ 幼兒 30 人 ｜ 共 135 人</dd>
-        <dt>普通主日出席平均</dt>
-        <dd>小學 40~45 人 ｜ 幼兒 12~15 人 ｜ 共 50 人</dd>
-        <dt>特殊主日出席平均</dt>
-        <dd>小學 50 人 ｜ 幼兒 15~20 人 ｜ 共 70~100 人</dd>
-        </dl>
-        
-        <h2>資源連結</h2>
-        <ul class="links">
-        <li><a href="#" target="_blank" rel="noopener">新生資料表（填寫）<small>Google 表單</small></a></li>
-        <li><a href="#" target="_blank" rel="noopener">學生資料表<small>線上表單</small></a></li>
-        <li><a href="#" target="_blank" rel="noopener">出席紀錄表<small>線上表單</small></a></li>
-        </ul>
-        
-        </div>
-        
-       
+
   <div data-children></div>
 
 </article>
