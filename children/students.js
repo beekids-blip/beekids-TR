@@ -8,9 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const listContainer = document.getElementById('studentList');
 
   // 1. 自動從 Google 試算表讀取 CSV 資料
-  async function loadSheetData() {
-    const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv`;
-    try {
+ async function loadSheetData() {
+  const sheetName = encodeURIComponent('02.資料總表');
+  const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}`;
+  try {
       const response = await fetch(csvUrl);
       if (!response.ok) throw new Error('無法存取試算表');
       const csvText = await response.text();
