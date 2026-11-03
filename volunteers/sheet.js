@@ -85,17 +85,33 @@
         <div class="blocks">${colsHTML}</div>`;
     }
 
+     const STACK = ['特殊出席', '請假'];                         // 全部週次：這兩類合成一格，一人一行
+    const HIDE = /\s*（破冰、串場、會後）/;                    // 全部週次：崗位名稱要隱藏的括號文字
+
     function allHTML() {                                        // 全部週次：整張表
       const cols = dates.map((d, i) => i).filter(i => dates[i]);
-      const span = (i, key) => { let n = 1; while (items[i + n] && key(items[i + n]) === key(items[i])) n++; return n; };
+      const list = [];
+      for (let i = 0; i < items.length;) {
+        const x = items[i]; let j = i;
+        if (STACK.includes(norm(x.sec))) {
+          while (items[j + 1] && items[j + 1].sec === x.sec) j++;
+          const g = items.slice(i, j + 1);
+          list.push({ sec: x.sec, role: '', stack: cols.map(c => g.map(r => r.vals[c].trim()).filter(v => v && v !== 'X')) });
+        } else list.push({ sec: x.sec, role: x.role, vals: cols.map(c => x.vals[c]) });
+        i = j + 1;
+      }
+      const span = (i, key) => { let n = 1; while (list[i + n] && key(list[i + n]) === key(list[i])) n++; return n; };
       const kSec = x => x.sec, kRole = x => x.sec + '|' + x.role;
       const head = cols.map(i => `<th>${txt(dates[i])}${notes[i] ? `<small>${txt(notes[i])}</small>` : ''}</th>`).join('');
-      const body = items.map((x, i) => {
-        const p = items[i - 1], newSec = !p || p.sec !== x.sec, newRole = newSec || p.role !== x.role;
-        return `<tr class="${newSec ? 'sec-start ' : ''}${x.sec === '請假' ? 'leave' : ''}">`
+      const body = list.map((x, i) => {
+        const p = list[i - 1], newSec = !p || p.sec !== x.sec, newRole = newSec || p.role !== x.role;
+        const cls = `${newSec ? 'sec-start ' : ''}${norm(x.sec) === '請假' ? 'leave' : ''}`;
+        if (x.stack) return `<tr class="${cls}"><td class="c12" colspan="2">${txt(x.sec)}</td>`
+          + x.stack.map(ns => `<td class="stack">${ns.map(n => `<div>${nm(n)}</div>`).join('')}</td>`).join('') + '</tr>';
+        return `<tr class="${cls}">`
           + (newSec ? `<td class="c1" rowspan="${span(i, kSec)}">${txt(x.sec)}</td>` : '')
-          + (newRole ? `<td class="c2" rowspan="${span(i, kRole)}">${txt(x.role)}</td>` : '')
-          + cols.map(c => { const v = x.vals[c]; return v.trim() === 'X' ? '<td class="none">—</td>' : `<td>${txt(v)}</td>`; }).join('')
+          + (newRole ? `<td class="c2" rowspan="${span(i, kRole)}">${txt(x.role.replace(HIDE, ''))}</td>` : '')
+          + x.vals.map(v => v.trim() === 'X' ? '<td class="none">—</td>' : `<td>${txt(v)}</td>`).join('')
           + '</tr>';
       }).join('');
       return `<div class="sheet-wrap"><table class="sheet-table">
