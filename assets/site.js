@@ -93,8 +93,7 @@
     const list = el.dataset.children === 'root' ? NAV.slice(1) : (node && node.c) || [];
     if (!list.length) return el.remove();
     el.className = 'cards';
-    el.innerHTML = list.map(n =>
-      `<a class="card" href="${href(n.p)}"><b>${n.t}</b>${n.c ? `<small>${n.c.length} 個子頁面</small>` : ''}</a>`).join('');
+    el.innerHTML = list.map(n =>).join('');
   });
 
   // In-page TOC
