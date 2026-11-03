@@ -103,8 +103,8 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
 .sheet-table thead th{position:sticky;top:0;z-index:2;background:var(--garden);color:#fff;font-weight:700}
 .sheet-table thead th small{display:block;font-weight:400;font-size:.75rem;color:var(--honey)}
 .sheet-table .c1,.sheet-table .c2{position:sticky;z-index:1;background:var(--mist);color:var(--garden);font-weight:700;text-align:left}
-.sheet-table .c1{left:0;width:84px;min-width:84px;max-width:84px}
-.sheet-table .c2{left:84px;min-width:120px;white-space:normal;border-right:1px solid var(--line)}
+.sheet-table .c1{left:0;width:52px;min-width:52px;max-width:52px;padding:6px;white-space:normal;text-align:center}
+.sheet-table .c2{left:52px;width:108px;min-width:108px;padding:6px 8px;font-size:.88rem;white-space:normal;border-right:1px solid var(--line)}
 .sheet-table thead .c1,.sheet-table thead .c2{z-index:3;background:var(--garden);color:#fff}
 .sheet-table tr.sec-start td{border-top:3px solid var(--honey)}
 .sheet-table td.none{color:#b5c0b9}
@@ -142,6 +142,9 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
 .blk th{width:40%;background:var(--mist);color:var(--garden);font-weight:700;font-size:.92rem}
 .blk td.none{color:#b5c0b9}
 .nm{white-space:nowrap}
+.sheet-table thead th{vertical-align:top}
+.sheet-table .c12{position:sticky;left:0;z-index:1;background:var(--mist);color:var(--garden);font-weight:700;text-align:center;vertical-align:middle;border-right:1px solid var(--line)}
+.sheet-table td.stack{vertical-align:top}
 
 
 /* ---------- 6B honeycomb ---------- */
