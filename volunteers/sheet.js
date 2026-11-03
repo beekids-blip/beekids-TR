@@ -74,10 +74,15 @@
       }
       blocks['特殊出席&請假'] = ['特殊出席', '請假'].map(l => ({ label: l, html: extra[l].map(nm).join('、') }));
       if (!Object.values(blocks).some(rs => rs.some(r => r.html))) return '<p class="callout">這一週還沒有排定服事。</p>';
-      const keys = [...ORDER, ...Object.keys(blocks).filter(k => !ORDER.includes(k))].filter(k => blocks[k] && blocks[k].length);
+           const cols = [['共同', '特殊出席&請假'], ['小學'], ['幼兒']];            // 三欄：左欄上下兩塊
+      const rest = Object.keys(blocks).filter(k => !cols.flat().includes(k));
+      if (rest.length) cols[0].push(...rest);
+      const blk = k => `<section class="blk"><h3>${esc(k)}</h3><table><tbody>${blocks[k].map(r =>
+        `<tr><th scope="row">${txt(r.label)}</th>${r.html ? `<td>${r.html}</td>` : '<td class="none">—</td>'}</tr>`).join('')}</tbody></table></section>`;
+      const colsHTML = cols.map(c => c.filter(k => blocks[k] && blocks[k].length).map(blk).join('')).filter(Boolean)
+        .map(h => `<div class="bcol">${h}</div>`).join('');
       return `<p class="wk-date"><b>${txt(dates[cur])}</b>${notes[cur] ? `<small>${txt(notes[cur])}</small>` : ''}</p>
-        <div class="blocks">${keys.map(k => `<section class="blk"><h3>${esc(k)}</h3><table><tbody>${blocks[k].map(r =>
-          `<tr><th scope="row">${txt(r.label)}</th>${r.html ? `<td>${r.html}</td>` : '<td class="none">—</td>'}</tr>`).join('')}</tbody></table></section>`).join('')}</div>`;
+        <div class="blocks">${colsHTML}</div>`;
     }
 
     function allHTML() {                                        // 全部週次：整張表
