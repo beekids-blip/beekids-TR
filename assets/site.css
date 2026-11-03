@@ -93,6 +93,10 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
 .split-text{display:flex;align-items:center;justify-content:center;text-align:center;background:var(--honey-soft);padding:28px 20px}
 .split .links{border:1px solid var(--line);background:#fff;padding:6px 16px!important;display:flex;flex-direction:column;justify-content:center}
 .split .links li:last-child{border-bottom:0}
+.core{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;margin-top:1rem}
+.core h3{margin-top:0}
+.core .honey{margin:1rem 0 0}
+.core-role{background:var(--mist);border-radius:12px;padding:24px 28px}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:1.4rem 0}
 .card{display:block;padding:16px 20px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);text-decoration:none}
 .card:hover{border-color:var(--honey);background:var(--honey-soft)}
@@ -128,6 +132,7 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
   .toc{display:none}
 }
 @media (max-width:900px){
+  .core{grid-template-columns:1fr}
   .split.has-logo{grid-template-columns:1fr 1fr}
   .split-logo{grid-column:1/-1}
   .menu-btn{display:block}
