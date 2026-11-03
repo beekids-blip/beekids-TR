@@ -76,14 +76,15 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
 .links a{display:flex;justify-content:space-between;gap:16px;padding:12px 4px;text-decoration:none;font-weight:500}
 .links a:hover{background:var(--honey-soft)}
 .links small{color:var(--muted);font-weight:400}
-
 .split{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;margin:1.2rem 0}
 .split>*{margin:0!important;border-radius:12px}
+.split.has-logo{grid-template-columns:.8fr 1.2fr 1.1fr}
+.split-logo{display:flex;align-items:center;justify-content:center;padding:8px}
+.split-logo img{width:100%;max-width:170px;aspect-ratio:1;object-fit:cover;border-radius:50%;border:3px solid var(--honey);background:#fff}
 .split-text p{margin:0}
 .split-text{display:flex;align-items:center;justify-content:center;text-align:center;background:var(--honey-soft);padding:28px 20px}
 .split .links{border:1px solid var(--line);background:#fff;padding:6px 16px!important;display:flex;flex-direction:column;justify-content:center}
 .split .links li:last-child{border-bottom:0}
-
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:1.4rem 0}
 .card{display:block;padding:16px 20px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);text-decoration:none}
 .card:hover{border-color:var(--honey);background:var(--honey-soft)}
@@ -119,6 +120,8 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
   .toc{display:none}
 }
 @media (max-width:900px){
+  .split.has-logo{grid-template-columns:1fr 1fr}
+  .split-logo{grid-column:1/-1}
   .menu-btn{display:block}
   .site-header nav{display:none;position:absolute;left:0;right:0;top:var(--head);margin:0;background:var(--garden);max-height:calc(100vh - var(--head));overflow:auto;padding:8px 24px 20px}
   .site-header nav.open{display:block}
@@ -136,5 +139,6 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
   .hex{width:auto;height:auto;clip-path:none;border-radius:10px;padding:14px 18px;align-items:flex-start;text-align:left}
   .hex:nth-child(n+4){margin-top:0;transform:none}
   .facts{grid-template-columns:1fr}
+  .split,.split.has-logo{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
