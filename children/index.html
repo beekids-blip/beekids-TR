@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>兒童相關｜Bee Kids</title>
 <link rel="stylesheet" href="../assets/site.css">
-<script defer src="../assets/site.js"></script>
+<script src="students.js"></script>
+</body>
+</html>
 </head>
 <body>
 <main id="main" class="page">
@@ -16,23 +18,27 @@
         
         <!-- 學生列表與更新時間 -->
         <div class="section-header">
-        <h2>學生列表</h2>
-        <div class="callout">
-        <p><strong>更新時間：</strong>2026/4/14</p>
+        <h2>學生列表</h2><span class="update-time">更新時間：2026/4/14</span>
         </div>
         
         <ul class="links row">
-        <li><a href="#">幼幼<small>學生列表</small></a></li>
-        <li><a href="#">幼小<small>學生列表</small></a></li>
-        <li><a href="#">幼中<small>學生列表</small></a></li>
-        <li><a href="#">幼大<small>學生列表</small></a></li>
-        <li><a href="#">一年級<small>學生列表</small></a></li>
-        <li><a href="#">二年級<small>學生列表</small></a></li>
-        <li><a href="#">三年級<small>學生列表</small></a></li>
-        <li><a href="#">四年級<small>學生列表</small></a></li>
-        <li><a href="#">五年級<small>學生列表</small></a></li>
-        <li><a href="#">六年級<small>學生列表</small></a></li>
+        <li><a class="grade-btn" data-grade="幼幼">幼幼<small>點擊查看名單</small></a></li>
+        <li><a class="grade-btn" data-grade="幼小">幼小<small>點擊查看名單</small></a></li>
+        <li><a class="grade-btn" data-grade="幼中">幼中<small>點擊查看名單</small></a></li>
+        <li><a class="grade-btn" data-grade="幼大">幼大<small>點擊查看名單</small></a></li>
+        <li><a class="grade-btn" data-grade="一年級">一年級<small>點擊查看名單</small></a></li>
+        <li><a class="grade-btn" data-grade="二年級">二年級<small>點擊查看名單</small></a></li>
+        <li><a class="grade-btn" data-grade="三年級">三年級<small>點擊查看名單</small></a></li>
+        <li><a class="grade-btn" data-grade="四年級">四年級<small>點擊查看名單</small></a></li>
+        <li><a class="grade-btn" data-grade="五年級">五年級<small>點擊查看名單</small></a></li>
+        <li><a class="grade-btn" data-grade="六年級">六年級<small>點擊查看名單</small></a></li>
         </ul>
+          
+        <div class="student-list-box" id="studentBox">
+        <h3 id="currentGradeTitle" style="margin-top: 0;">請選擇年級</h3>
+        <p id="studentStatus" style="color: #666;">點擊上方年級按鈕即可載入名單。</p>
+        <ul class="student-tags" id="studentList"></ul>
+        </div>
         
         <h2>人數與出席統計</h2>
         <dl class="facts">
@@ -55,16 +61,6 @@
         
        
   <div data-children></div>
-
-  <h2>資源連結</h2>
-  <ul class="links">
-    <!-- 複製下一行來新增連結 -->
-    <!-- <li><a href="https://example.com" target="_blank" rel="noopener">連結名稱<small>說明</small></a></li> -->
-  </ul>
-
-  <div class="callout">
-    <p><strong>編輯這一頁：</strong>在 GitHub 開啟 <code>children/index.html</code>，點右上角鉛筆圖示，修改 <code>&lt;article&gt;</code> 內的內容後 Commit，網站會自動更新。</p>
-  </div>
 
 </article>
 </main>
