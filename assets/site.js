@@ -88,13 +88,13 @@
     article.insertAdjacentHTML('afterbegin', `<nav class="crumbs" aria-label="麵包屑">${crumbs}</nav>`);
   }
 
-  // Child page cards: <div data-children></div> (current page) or data-children="root" (all sections)
-  document.querySelectorAll('[data-children]').forEach(el => {
-    const list = el.dataset.children === 'root' ? NAV.slice(1) : (node && node.c) || [];
-    if (!list.length) return el.remove();
-    el.className = 'cards';
-    el.innerHTML = list.map(n =>).join('');
-  });
+ // Child page cards: <div data-children></div> (current page) or data-children="root" (all sections)
+document.querySelectorAll('[data-children]').forEach(el => {
+  const list = el.dataset.children === 'root' ? NAV.slice(1) : (node && node.c) || [];
+  if (!list.length) return el.remove();
+  el.className = 'cards';
+  el.innerHTML = list.map(n => `<a class="card" href="${href(n.p)}"><b>${n.t}</b></a>`).join('');
+});
 
   // In-page TOC
   if (!main.classList.contains('no-toc')) {
