@@ -206,3 +206,5 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
 }
 .form-embed{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;margin:1rem 0}
 .form-embed iframe{display:block;width:80%;height:500px;border:0}
+.side-text>ul:first-child{margin-top:0}
+.form-embed.short iframe{height:500px}
