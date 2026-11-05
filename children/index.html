@@ -53,8 +53,20 @@
         
         <!-- 統計卡片區域 -->
         <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
-        
-        <!-- 1. 人數統計 (有填入資料庫) -->
+
+        <!-- 幼兒各年級人數 -->
+        <div class="stat-card" style="padding: 1.2rem; background: #fff; border: 1px solid #dcdcdc; border-radius: 8px;">
+        <h3 style="margin-top: 0; font-size: 1.1rem;">幼兒<small>各年級人數</small></h3>
+        <ul id="gradeKinder" style="list-style: square; padding-left: 1.2rem; margin-bottom: 0; line-height: 1.8;"></ul>
+        </div>
+
+        <!-- 小學各年級人數 -->
+        <div class="stat-card" style="padding: 1.2rem; background: #fff; border: 1px solid #dcdcdc; border-radius: 8px;">
+        <h3 style="margin-top: 0; font-size: 1.1rem;">小學<small>各年級人數</small></h3>
+        <ul id="gradeElem" style="list-style: square; padding-left: 1.2rem; margin-bottom: 0; line-height: 1.8;"></ul>
+        </div>
+          
+        <!-- 人數統計 (有填入資料庫) -->
         <div class="stat-card" style="padding: 1.2rem; background: #fff; border: 1px solid #dcdcdc; border-radius: 8px;">
         <h3 style="margin-top: 0; font-size: 1.1rem;">人數統計<small>有填入資料庫</small></h3>
         <ul style="list-style: square; padding-left: 1.2rem; margin-bottom: 0; line-height: 1.8;">
@@ -64,7 +76,7 @@
         </ul>
         </div>
         
-        <!-- 2. 普通主日出席平均 (若有欄位資料可擴充，先預留容器) -->
+        <!-- 普通主日出席平均 (若有欄位資料可擴充，先預留容器) -->
         <div class="stat-card" style="padding: 1.2rem; background: #fff; border: 1px solid #dcdcdc; border-radius: 8px;">
         <h3 style="margin-top: 0; font-size: 1.1rem;">普通主日<small>出席平均</small></h3>
         <ul style="list-style: square; padding-left: 1.2rem; margin-bottom: 0; line-height: 1.8;">
@@ -74,7 +86,7 @@
         </ul>
         </div>
         
-        <!-- 3. 特殊主日出席平均 -->
+        <!-- 特殊主日出席平均 -->
         <div class="stat-card" style="padding: 1.2rem; background: #fff; border: 1px solid #dcdcdc; border-radius: 8px;">
         <h3 style="margin-top: 0; font-size: 1.1rem;">特殊主日<small>出席平均</small></h3>
         <ul style="list-style: square; padding-left: 1.2rem; margin-bottom: 0; line-height: 1.8;">
