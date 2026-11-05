@@ -82,8 +82,8 @@
   // Favicon
   document.head.insertAdjacentHTML('beforeend', `<link rel="icon" href="${href('assets/img/純LOGO_透明.png')}">`);
 
-  const main = document.querySelector('main.page');
-  const article = main.querySelector('article');
+ const main = document.querySelector('main.page') || document.createElement('main');
+ const article = main.querySelector('article') || document.createElement('article');
 
   // Breadcrumb
   if (trail.length > 1) {
@@ -95,7 +95,12 @@
 document.querySelectorAll('[data-children]').forEach(el => {
   const list = el.dataset.children === 'root' ? NAV.slice(1) : (node && node.c) || [];
   if (!list.length) return el.remove();
-  el.className = 'cards';
+  if (el.classList.contains('btns')) {          // 放在 hero 裡：用按鈕樣式
+    el.innerHTML = list.map((n, i) =>
+      `<a class="btn ${i ? 'line' : 'solid'}" href="${href(n.p)}">${n.t}</a>`).join('');
+    return;
+  }
+  el.className = 'cards';                       // 其他地方：卡片樣式
   el.innerHTML = list.map(n => `<a class="card" href="${href(n.p)}"><b>${n.t}</b></a>`).join('');
 });
 
