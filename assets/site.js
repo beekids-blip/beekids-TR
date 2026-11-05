@@ -16,33 +16,12 @@
       { t: '年度行事曆', p: 'volunteers/calendar.html' },
     ]},
     { t: '兒童相關', p: 'children/index.html' },
-    { t: '服事預備', p: 'prep/index.html', c: [
-      { t: '信息', p: 'prep/message.html' },
-      { t: '共同', p: 'prep/common/index.html', c: [
-        { t: '攝影', p: 'prep/common/photography.html' },
-        { t: '行政', p: 'prep/common/admin.html' },
-        { t: '敬拜', p: 'prep/common/worship.html' },
-        { t: '器材列表', p: 'prep/common/equipment.html' },
-      ]},
-      { t: '小學', p: 'prep/primary/index.html', c: [
-        { t: '破冰', p: 'prep/primary/icebreaker.html' },
-        { t: '音控', p: 'prep/primary/sound.html' },
-        { t: '場監', p: 'prep/primary/monitor.html' },
-        { t: 'PPT', p: 'prep/primary/ppt.html' },
-      ]},
-      { t: '幼兒', p: 'prep/kindergarten/index.html', c: [
-        { t: '彩虹城堡', p: 'prep/kindergarten/rainbow-castle.html' },
-        { t: '背經', p: 'prep/kindergarten/memory-verse.html' },
-        { t: '會後活動', p: 'prep/kindergarten/after-activity.html' },
-      ]},
-    ]},
-    { t: '特殊專案', p: 'projects/index.html', c: [
-      { t: '兒童營會', p: 'projects/camp.html' },
-      { t: '特別聚會', p: 'projects/special-meeting.html' },
-      { t: '其他活動', p: 'projects/other.html' },
-    ]},
-    { t: '相簿', p: 'gallery.html' },
-    { t: '資料索引', p: 'resources.html' },
+    { t: '服事預備', p: 'prep/index.html' },
+    { t: '尚未架設', p: 'other/other.html', c: [
+      { t: '特殊專案', p: 'projects/index.html',},
+      { t: '相簿', p: 'gallery.html' },
+      { t: '資料索引', p: 'resources.html' },
+      ]}
   ];
 
   const ROOT = new URL('../', document.currentScript.src);
