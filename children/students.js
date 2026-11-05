@@ -55,8 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      gradeTitle.textContent = `${selectedGrade} 學生名單`;
-
+        gradeTitle.textContent = selectedGrade;
+      
       if (allStudentsData.length === 0) {
         statusText.style.display = 'block';
         statusText.textContent = '資料載入中，請稍後...';
