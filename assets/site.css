@@ -233,6 +233,7 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
 .bd-m li span{color:var(--muted);min-width:3em;font-variant-numeric:tabular-nums}
 .bd-m li.today{font-weight:700;color:var(--garden)}
 .bd-m .none{margin:0;color:#b5c0b9}
+.m-total{margin-left:.8em;font-size:.8rem;font-weight:400;color:var(--muted)}
 
 /* ---------- 年度行事曆 ---------- */
 .lead small{margin-left:1em;font-size:.85rem}
