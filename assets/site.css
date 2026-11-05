@@ -227,6 +227,37 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
 .bd-m.now{border:2px solid var(--honey);background:var(--honey-soft)}
 .bd-m h3{margin:0 0 .4rem;font-size:1.05rem}
 .bd-m ul{list-style:none;padding:0!important;margin:0}
+
+/* ---------- 年度行事曆 ---------- */
+.lead small{margin-left:1em;font-size:.85rem}
+.cal-next{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;background:var(--honey-soft);border:2px solid var(--honey);border-radius:12px;padding:14px 20px;margin:1.2rem 0}
+.cal-next span{font-size:.85rem;font-weight:700;color:var(--garden-deep);background:var(--honey);border-radius:999px;padding:1px 10px}
+.cal-next b{font-size:1.2rem;color:var(--garden)}
+.cal-next b small{margin-left:.3em;font-size:.8rem;font-weight:400;color:var(--muted)}
+.cal-next>small{color:var(--muted)}
+.cal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.cal-m{border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden}
+.cal-m h3{margin:0;padding:8px 16px;background:var(--honey);color:var(--garden-deep);font-size:1rem}
+.cal-m.now{border:2px solid var(--garden)}
+.cal-m.now h3{background:var(--garden);color:#fff}
+.cal-m ul{list-style:none;padding:8px 16px 12px!important;margin:0;min-height:3.4rem}
+.cal-m li{margin:.25em 0}
+.cal-m .none{margin:0;padding:8px 16px 12px;color:#b5c0b9}
+.ev{display:flex;gap:.8em;align-items:baseline}
+.ev::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--c);transform:translateY(-1px)}
+.ev.meeting{--c:var(--garden)}
+.ev.bee{--c:var(--honey)}
+.ev.camp{--c:#5FA37B}
+.ev.other{--c:#9AA79F}
+.ev .d{min-width:4.8em;color:var(--muted);font-variant-numeric:tabular-nums}
+.ev .d small{margin-left:.35em;font-size:.8rem}
+.ev .t{font-weight:500}
+.ev.past{opacity:.5}
+.cal-legend{list-style:none;padding:0!important;display:flex;flex-wrap:wrap;gap:6px 20px;margin:1rem 0;font-size:.88rem;color:var(--muted)}
+.cal-legend li{margin:0;gap:.5em;align-items:center}
+.cal-sub{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;background:var(--mist);border-radius:12px;padding:18px 22px;margin:1.6rem 0 1rem}
+.cal-sub p{margin:.2rem 0 0;color:var(--muted);font-size:.92rem}
+.cal-sub .btn.line{color:var(--garden);border-color:var(--garden)}
 .bd-m li{margin:.15em 0;display:flex;gap:.8em}
 .bd-m li span{color:var(--muted);min-width:3em;font-variant-numeric:tabular-nums}
 .bd-m li.today{font-weight:700;color:var(--garden)}
