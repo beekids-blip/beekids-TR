@@ -18,7 +18,6 @@
 <main id="main" class="page">
 <article class="prose">
 
-  <h1>兒童相關</h1>
         <div class="section-header">
         <h2>學生列表 <span class="update-time">更新時間：2026/4/14</span></h2>       
         </div>
@@ -51,6 +50,46 @@
 
   <div data-children></div>
 
+
+    <div class="section-header">
+    <h2>統計資料</h2>
+        </div>
+        
+        <!-- 統計卡片區域 -->
+        <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
+        
+        <!-- 1. 人數統計 (有填入資料庫) -->
+        <div class="stat-card" style="padding: 1.2rem; background: #fff; border: 1px solid #dcdcdc; border-radius: 8px;">
+        <h3 style="margin-top: 0; font-size: 1.1rem;">人數統計（有填入資料庫）</h3>
+        <ul style="list-style: square; padding-left: 1.2rem; margin-bottom: 0; line-height: 1.8;">
+        <li>小學：<span id="statElementary">0</span>人</li>
+        <li>幼兒：<span id="statKindergarten">0</span>人</li>
+        <li>共 <span id="statTotal">0</span>人</li>
+        </ul>
+        </div>
+        
+        <!-- 2. 普通主日出席平均 (若有欄位資料可擴充，先預留容器) -->
+        <div class="stat-card" style="padding: 1.2rem; background: #fff; border: 1px solid #dcdcdc; border-radius: 8px;">
+        <h3 style="margin-top: 0; font-size: 1.1rem;">普通主日出席平均</h3>
+        <ul style="list-style: square; padding-left: 1.2rem; margin-bottom: 0; line-height: 1.8;">
+        <li>小學：<span id="avgNormalElementary">--</span>人</li>
+        <li>幼兒：<span id="avgNormalKindergarten">--</span>人</li>
+        <li>共 <span id="avgNormalTotal">--</span>人</li>
+        </ul>
+        </div>
+        
+        <!-- 3. 特殊主日出席平均 -->
+        <div class="stat-card" style="padding: 1.2rem; background: #fff; border: 1px solid #dcdcdc; border-radius: 8px;">
+        <h3 style="margin-top: 0; font-size: 1.1rem;">特殊主日出席平均</h3>
+        <ul style="list-style: square; padding-left: 1.2rem; margin-bottom: 0; line-height: 1.8;">
+        <li>小學：<span id="avgSpecialElementary">--</span>人</li>
+        <li>幼兒：<span id="avgSpecialKindergarten">--</span>人</li>
+        <li>共 <span id="avgSpecialTotal">--</span>人</li>
+        </ul>
+        </div>
+        
+        </div>
+  
 </article>
 </main>
 <script src="students.js"></script>
