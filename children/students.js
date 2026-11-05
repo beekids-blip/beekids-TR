@@ -81,5 +81,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 計算人數統計
+function calculateStats(data) {
+  // 定義幼兒與小學的年級標籤
+  const kindergartenGrades = ['幼幼', '幼小', '幼中', '幼大'];
+  const elementaryGrades = ['一年級', '二年級', '三年級', '四年級', '五年級', '六年級'];
+
+  let elementaryCount = 0;
+  let kindergartenCount = 0;
+
+  data.forEach(student => {
+    const grade = student.grade.trim();
+    if (elementaryGrades.includes(grade)) {
+      elementaryCount++;
+    } else if (kindergartenGrades.includes(grade)) {
+      kindergartenCount++;
+    }
+  });
+
+  const totalCount = elementaryCount + kindergartenCount;
+
+  // 渲染至 HTML DOM 元素
+  const elElementary = document.getElementById('statElementary');
+  const elKindergarten = document.getElementById('statKindergarten');
+  const elTotal = document.getElementById('statTotal');
+
+  if (elElementary) elElementary.textContent = elementaryCount;
+  if (elKindergarten) elKindergarten.textContent = kindergartenCount;
+  if (elTotal) elTotal.textContent = totalCount;
+}
+
   loadSheetData();
 });
