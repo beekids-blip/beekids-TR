@@ -12,9 +12,9 @@
       { t: '義工守則', p: 'volunteers/rules.html' },
       { t: '義工成員', p: 'volunteers/members.html' },
       { t: '出席請假', p: 'volunteers/service.html' },
-      { t: '義工月會', p: 'volunteers/monthly-meeting.html' },
-      { t: '年度行事曆', p: 'volunteers/calendar.html' },
-    ]},
+      { t: '義工月會', p: 'volunteers/monthly-meeting.html', c: [
+        { t: '月會課程紀錄', p: 'volunteers/meeting-records.html', hide: true },]},
+      { t: '年度行事曆', p: 'volunteers/calendar.html' },]},
     { t: '兒童相關', p: 'children/index.html' },
     { t: '服事預備', p: 'prep/index.html' },
     { t: '尚未架設', p: 'other/other.html', c: [
@@ -42,11 +42,12 @@
   const link = n => `<a href="${href(n.p)}"${isCur(n) ? ' aria-current="page"' : ''}>${n.t}</a>`;
 
   // Header
-  const sub = n => n.c
-    ? `<li class="grp">${link(n)}<ul>${n.c.map(sub).join('')}</ul></li>`
+  const vis = n => (n.c || []).filter(x => !x.hide);          // 只取沒隱藏的子頁
+  const sub = n => vis(n).length
+    ? `<li class="grp">${link(n)}<ul>${vis(n).map(sub).join('')}</ul></li>`
     : `<li>${link(n)}</li>`;
-  const top = n => n.c
-    ? `<li class="has-sub${trail[0] === n ? ' on' : ''}">${link(n)}<ul class="sub">${n.c.map(sub).join('')}</ul></li>`
+  const top = n => vis(n).length
+    ? `<li class="has-sub${trail[0] === n ? ' on' : ''}">${link(n)}<ul class="sub">${vis(n).map(sub).join('')}</ul></li>`
     : `<li class="${trail[0] === n ? 'on' : ''}">${link(n)}</li>`;
   document.body.insertAdjacentHTML('afterbegin',
     `<a class="skip" href="#main">跳到主要內容</a>
@@ -72,8 +73,7 @@
 
  // Child page cards: <div data-children></div> (current page) or data-children="root" (all sections)
 document.querySelectorAll('[data-children]').forEach(el => {
-  const list = el.dataset.children === 'root' ? NAV.slice(1) : (node && node.c) || [];
-  if (!list.length) return el.remove();
+  const list = el.dataset.children === 'root' ? NAV.slice(1) : ((node && node.c) || []).filter(x => !x.hide);  if (!list.length) return el.remove();
   if (el.classList.contains('btns')) {          // 放在 hero 裡：用按鈕樣式
   const brk = +el.dataset.break || 0;         // data-break="2"：第 2 顆後面換行
   el.innerHTML = list.map((n, i) =>
