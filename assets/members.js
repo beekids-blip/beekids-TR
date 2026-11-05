@@ -62,6 +62,12 @@
       ? (a.b[2] - b.b[2]) || (a.b[0] - b.b[0]) || (a.b[1] - b.b[1]) || (a.i - b.i) : a.i - b.i;
     const mdCmp = (a, b) => (a.b[0] - b.b[0]) || (a.b[1] - b.b[1]) || (a.i - b.i);
     members.sort((a, b) => (!a.b - !b.b) || (!a.b ? a.i - b.i : SORT_BY === 'age' ? dir * ageCmp(a, b) : mdCmp(a, b)));
+    const total = members.filter(p => p.g !== '其他').length;
+    const h = [...document.querySelectorAll('h2')].find(x => x.textContent.includes('成員名單'));
+    if (h) {
+      let s = h.querySelector('.m-total');
+      if (!s) { s = document.createElement('small'); s.className = 'm-total'; h.appendChild(s); }
+      s.textContent = `共 ${total} 人（不含其他）`;}
 
     list.innerHTML = GROUPS.map(g => {
       const l = members.filter(p => p.g === g); if (!l.length) return '';
