@@ -48,6 +48,8 @@ code{background:var(--mist);padding:.1em .4em;border-radius:4px;font-size:.9em}
 .btn.solid{background:var(--honey);color:var(--garden-deep)}
 .btn.line{color:#fff}
 .btn:hover{background:#fff;border-color:#fff;color:var(--garden-deep)}
+.btns{display:flex;flex-wrap:wrap;gap:16px}
+.btns-br{flex-basis:100%;height:0}
 
 /* ---------- Page layout ---------- */
 .page{max-width:1120px;margin:0 auto;padding:40px 24px 88px;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:48px}
