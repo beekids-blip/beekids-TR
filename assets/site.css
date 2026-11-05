@@ -208,3 +208,26 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
 .form-embed iframe{display:block;width:80%;height:500px;border:0}
 .side-text>ul:first-child{margin-top:0}
 .form-embed.short iframe{height:500px}
+
+/* ---------- 義工成員 ---------- */
+.mgrp h3{margin:1.6rem 0 .4rem}
+.chips{list-style:none;padding:0!important;margin:.4rem 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{margin:0;padding:4px 14px;background:var(--mist);border:1px solid var(--line);border-radius:999px;font-weight:500}
+.chips small{margin-left:.5em;color:var(--muted);font-size:.78rem;font-weight:400}
+.bd-now{background:var(--honey-soft);border:2px solid var(--honey);border-radius:12px;padding:16px 20px;margin:1rem 0 1.6rem}
+.bd-now b{font-size:1.1rem;color:var(--garden)}
+.bd-now p{margin:.4rem 0 0}
+.bd-now ul{list-style:none;padding:0!important;margin:.5rem 0 0;display:flex;flex-wrap:wrap;gap:6px 22px}
+.bd-now li{margin:0}
+.bd-now li span{font-weight:700;color:var(--garden);margin-right:.5em;font-variant-numeric:tabular-nums}
+.bd-now li.today{font-weight:700}
+.bd-now li.today::after{content:"今天生日";margin-left:.6em;padding:1px 8px;border-radius:999px;background:var(--honey);color:var(--garden-deep);font-size:.75rem}
+.bd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.bd-m{border:1px solid var(--line);border-radius:10px;background:#fff;padding:12px 16px}
+.bd-m.now{border:2px solid var(--honey);background:var(--honey-soft)}
+.bd-m h3{margin:0 0 .4rem;font-size:1.05rem}
+.bd-m ul{list-style:none;padding:0!important;margin:0}
+.bd-m li{margin:.15em 0;display:flex;gap:.8em}
+.bd-m li span{color:var(--muted);min-width:3em;font-variant-numeric:tabular-nums}
+.bd-m li.today{font-weight:700;color:var(--garden)}
+.bd-m .none{margin:0;color:#b5c0b9}
