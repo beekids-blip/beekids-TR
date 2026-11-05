@@ -101,7 +101,7 @@ document.querySelectorAll('[data-children]').forEach(el => {
 
   // In-page TOC
   if (!main.classList.contains('no-toc')) {
-    const hs = [...article.querySelectorAll('h2, h3')];
+    const hs = [...article.querySelectorAll('h2')];
     if (hs.length >= 3) {
       hs.forEach((h, i) => { if (!h.id) h.id = 'sec-' + (i + 1); });
       main.insertAdjacentHTML('beforeend',
