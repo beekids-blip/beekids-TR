@@ -13,7 +13,7 @@
       { t: '義工成員', p: 'volunteers/members.html' },
       { t: '出席請假', p: 'volunteers/service.html' },
       { t: '義工月會', p: 'volunteers/monthly-meeting.html' },
-      { t: '月會課程紀錄', p: 'volunteers/monthly-record.html' },
+      { t: '年度行事曆', p: 'volunteers/calendar.html' },
     ]},
     { t: '兒童相關', p: 'children/index.html' },
     { t: '服事預備', p: 'prep/index.html', c: [
