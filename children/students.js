@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
  // 1. 自動從 Google 試算表讀取 CSV 資料（使用發佈到網路的 CSV 網址）
   async function loadSheetData() {
-    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSpHhJIZj58uAemsVdEe4uZl89Pm7oFF9r1bDKBVFivi4oZjt68_Yd0kIGOFwzAZWH-_cZTFXGeusV6/pub?gid=688096353&single=true&output=csv';
+    const csvUrl = 'https://docs.google.com/spreadsheets/d/1UMu2Cvx6c-jwA_Bvf6kPSQolS9B-am3TbV46qvkmy6Q/edit?usp=sharing';
     try {
       const response = await fetch(csvUrl);
       if (!response.ok) throw new Error('無法存取試算表');
