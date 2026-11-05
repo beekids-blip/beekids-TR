@@ -7,24 +7,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const statusText = document.getElementById('studentStatus');
   const listContainer = document.getElementById('studentList');
 
- // 1. 自動從 Google 試算表讀取 CSV 資料
+ // 1. 自動從 Google 試算表讀取 CSV 資料（使用發佈到網路的 CSV 網址）
   async function loadSheetData() {
-    const sheetName = encodeURIComponent('02.資料總表');
-    const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}`;
+    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSpHhJIZj58uAemsVdEe4uZl89Pm7oFF9r1bDKBVFivi4oZjt68_Yd0kIGOFwzAZWH-_cZTFXGeusV6/pub?gid=688096353&single=true&output=csv';
     try {
       const response = await fetch(csvUrl);
       if (!response.ok) throw new Error('無法存取試算表');
       const csvText = await response.text();
       allStudentsData = parseCSV(csvText);
 
-      // 【新增這段】資料載入成功後，如果選單已經有選年級，自動發送 change 事件更新畫面！
+      // 資料載入成功後，若選單已選擇年級，自動觸發更新
       if (gradeSelect && gradeSelect.value) {
         gradeSelect.dispatchEvent(new Event('change'));
       } else if (statusText) {
+        statusText.style.display = 'block';
         statusText.textContent = '請從上方下拉選單選擇年級查看名單。';
       }
     } catch (error) {
-      if (statusText) statusText.textContent = '資料載入失敗，請確認試算表已開啟「知道連結者皆可檢視」權限。';
+      if (statusText) {
+        statusText.style.display = 'block';
+        statusText.textContent = '資料載入失敗，請確認試算表已開啟發佈權限。';
+      }
       console.error(error);
     }
   }
