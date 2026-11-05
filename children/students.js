@@ -106,6 +106,17 @@ document.addEventListener('DOMContentLoaded', () => {
     setText('statElementary', e);
     setText('statKindergarten', k);
     setText('statTotal', e + k);
+
+    // 各年級人數：填進「幼兒」「小學」兩張卡片
+    const fill = (id, grades) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const n = g => data.filter(s => s.grade === g).length;
+      el.innerHTML = grades.map(g => `<li>${g}：${n(g)}人</li>`).join('')
+        + `<li><b>小計：${grades.reduce((sum, g) => sum + n(g), 0)}人</b></li>`;
+    };
+    fill('gradeKinder', KINDER);
+    fill('gradeElem', ELEM);
   }
 
   // ---------- 從年度行事曆找出特殊主日 ----------
