@@ -10,16 +10,17 @@
 <script defer src="../assets/records.js"></script>
 <script defer src="../assets/site.js"></script>
 <style>
-  .rec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start;padding:20px;margin:1.2rem 0;background:#fff;border:1px solid var(--line);border-radius:12px}
-  .rec.nomedia{grid-template-columns:minmax(0,1fr)}
-  .rec-media{aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000}
-  .rec-media iframe{display:block;width:100%;height:100%;border:0}
-  .rec h3{margin:0 0 .5rem;font-size:1.4rem;color:var(--garden)}
-  .rec .facts{margin:.5rem 0}
-  .rec-btns{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 0}
-  .rec .btn{padding:8px 22px}
+  .rec{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding:16px 20px;margin:.8rem 0;background:#fff;border:1px solid var(--line);border-radius:12px}
+  .rec-info{flex:1 1 320px;min-width:0}
+  .rec h3{margin:0 0 .25rem;font-size:1.25rem;color:var(--garden)}
+  .rec-meta{display:flex;flex-wrap:wrap;gap:2px 20px;margin:0;font-size:.95rem;color:var(--muted)}
+  .rec-btns{display:flex;flex-wrap:wrap;gap:10px}
+  .rec .btn{padding:7px 20px;font-size:.95rem;cursor:pointer;font-family:inherit}
   .rec .btn:hover{background:var(--honey-soft);border-color:var(--honey)}
-  @media (max-width:760px){.rec{grid-template-columns:minmax(0,1fr)}}
+  .rec .btn.vid{background:#fff;color:var(--garden)}
+  .rec-media{flex:1 1 100%;max-width:640px;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000}
+  .rec-media[hidden]{display:none}
+  .rec-media iframe{display:block;width:100%;height:100%;border:0}
 </style>
 </head>
 <body>
@@ -27,20 +28,20 @@
 <article class="prose">
 
   <h1>月會課程紀錄</h1>
+  <p class="lead">歷次義工月會課程的影片與講義，新的在最上面。</p>
+
   <div data-records></div>
 
   <!-- 新增課程：在下面加一行，欄位用 | 隔開
-       日期 | 時間 | 課程名稱 | 老師 | 影片網址（YouTube） | 講義網址
-       沒有影片或講義就留空，但 | 要保留。順序不用管，程式會自動由新到舊排。 -->
+       日期 | 時間 | 課程名稱 | 老師 | 影片網址 | 講義網址 | 簡報網址
+       沒有的就留空，但中間的 | 要保留（最後面的空欄可以省略）。順序不用管，程式會自動由新到舊排。 -->
   <script type="text/plain" id="records">
-      2026/11/01 | 14:00~16:00 | 敬拜實務 | 毅帆 | | 
-      2026/09/06 | 14:00~16:00 | 愛之語 | 芸慈 | | 
-      2026/05/24 | 14:30~16:10 | 兒童發展（小） | 啟東 |https://youtu.be/cPZk_1d1Ehk|https://docs.google.com/document/d/1YlHSKPOEsYn8e-nKX3B465QKJMaDh3Wkd4O-FqCqExY/edit?usp=drive_link
-      2026/04/12 | 14:30~15:30 | 兒童發展（幼） | 翠芬姐 | |https://docs.google.com/document/d/1d_2HrQmFXCP6ecwiqf18AM_L6U87WDx80XRX6Ud5ziA/edit?usp=drive_link
-      2025/04/20 | 14:00~16:00 | 阿德勒正向課程 | 吳珍老師 | |
-      2024/11/10 | 14:00~15:15 | 繪本導讀 | 子嫻老師 |https://youtu.be/axCqke9qN6M|
-
-
+    2026/11/01 | 14:00~16:00 | 敬拜實務 | 毅帆 | | |
+    2026/09/06 | 14:00~16:00 | 愛之語 | 芸慈 | | |
+    2026/05/24 | 14:30~16:10 | 兒童發展（小） | 啟東 | https://youtu.be/cPZk_1d1Ehk | https://docs.google.com/document/d/1YlHSKPOEsYn8e-nKX3B465QKJMaDh3Wkd4O-FqCqExY/edit?usp=drive_link |https://docs.google.com/presentation/d/1Ws0QD-Ifm_70AsRKNOVRW7S3EXEe6-dNy_OTGCy-zqY/edit?usp=drive_link
+    2026/04/12 | 14:30~15:30 | 兒童發展（幼） | 翠芬姐 | | https://docs.google.com/document/d/1d_2HrQmFXCP6ecwiqf18AM_L6U87WDx80XRX6Ud5ziA/edit?usp=drive_link |
+    2025/04/20 | 14:00~16:00 | 阿德勒正向課程 | 吳珍老師 | |
+    2024/11/10 | 14:00~15:15 | 繪本導讀 | 子嫻老師 | https://youtu.be/axCqke9qN6M |
   </script>
 
 </article>
