@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>月會課程紀錄｜Bee Kids</title>
+<link rel="stylesheet" href="../assets/site.css">
+<!-- records.js 要放在 site.js 前面：先畫出年份標題，右邊的「本頁內容」目錄才抓得到 -->
+<script defer src="../assets/records.js"></script>
+<script defer src="../assets/site.js"></script>
+<style>
+  .rec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start;padding:20px;margin:1.2rem 0;background:#fff;border:1px solid var(--line);border-radius:12px}
+  .rec.nomedia{grid-template-columns:minmax(0,1fr)}
+  .rec-media{aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000}
+  .rec-media iframe{display:block;width:100%;height:100%;border:0}
+  .rec h3{margin:0 0 .5rem;font-size:1.4rem;color:var(--garden)}
+  .rec .facts{margin:.5rem 0}
+  .rec-btns{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 0}
+  .rec .btn{padding:8px 22px}
+  .rec .btn:hover{background:var(--honey-soft);border-color:var(--honey)}
+  @media (max-width:760px){.rec{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<main id="main" class="page">
+<article class="prose">
+
+  <h1>月會課程紀錄</h1>
+  <p class="lead">歷次義工月會課程的影片與講義，新的在最上面。</p>
+
+  <div data-records></div>
+
+  <!-- 新增課程：在下面加一行，欄位用 | 隔開
+       日期 | 時間 | 課程名稱 | 老師 | 影片網址（YouTube） | 講義網址
+       沒有影片或講義就留空，但 | 要保留。順序不用管，程式會自動由新到舊排。 -->
+  <script type="text/plain" id="records">
+2026/04/12 | 14:30~15:30 | 幼兒發展歷程 | 翠芬姐 | | 貼上講義網址
+2025/04/20 | 14:00~16:00 | 阿德勒正向課程 | 吳珍老師 | |
+2024/11/10 | 14:00~15:15 | 繪本導讀 | 子嫻老師 | 貼上YouTube網址 |
+  </script>
+
+</article>
+</main>
+</body>
+</html>
