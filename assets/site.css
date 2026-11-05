@@ -227,6 +227,10 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
 .bd-m.now{border:2px solid var(--honey);background:var(--honey-soft)}
 .bd-m h3{margin:0 0 .4rem;font-size:1.05rem}
 .bd-m ul{list-style:none;padding:0!important;margin:0}
+.bd-m li{margin:.15em 0;display:flex;gap:.8em}
+.bd-m li span{color:var(--muted);min-width:3em;font-variant-numeric:tabular-nums}
+.bd-m li.today{font-weight:700;color:var(--garden)}
+.bd-m .none{margin:0;color:#b5c0b9}
 
 /* ---------- 年度行事曆 ---------- */
 .lead small{margin-left:1em;font-size:.85rem}
@@ -258,7 +262,3 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
 .cal-sub{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;background:var(--mist);border-radius:12px;padding:18px 22px;margin:1.6rem 0 1rem}
 .cal-sub p{margin:.2rem 0 0;color:var(--muted);font-size:.92rem}
 .cal-sub .btn.line{color:var(--garden);border-color:var(--garden)}
-.bd-m li{margin:.15em 0;display:flex;gap:.8em}
-.bd-m li span{color:var(--muted);min-width:3em;font-variant-numeric:tabular-nums}
-.bd-m li.today{font-weight:700;color:var(--garden)}
-.bd-m .none{margin:0;color:#b5c0b9}
