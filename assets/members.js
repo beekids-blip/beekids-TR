@@ -8,7 +8,8 @@
   const GROUPS = ['同工', '小學', '幼兒', '實習生', '其他'];   // 顯示順序
   const NORMAL = ['服事中'];                                    // 這些狀態視同「沒有狀態」，仍依部門分類
   const SKIP = ['已退出', '過期資料'];                          // 這些狀態的列完全不顯示
-  const OLDEST_FIRST = true;                                    // 各分類內的順序：true＝年長在前；false＝年輕在前
+  const SORT_BY = 'birthday';                                   // 各分類內的順序：'birthday'＝依生日月日（1/1→12/31）；'age'＝依年齡
+  const OLDEST_FIRST = true;                                    // 只在 SORT_BY 是 'age' 時使用：true＝年長在前；false＝年輕在前
   const list = box.querySelector('.m-groups'), cal = box.querySelector('.m-birthdays');
   const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const pad = n => String(n).padStart(2, '0');
@@ -55,11 +56,12 @@
       else { p.g = '其他'; p.tag = p.dept; }                                                // 信息或其他部門
       return p;
     });
-    // 依年齡排序：有年份就比完整生日；只有月日時沿用試算表的順序（請在試算表用 order by 排好）；沒有生日的排最後
+       // 排序：沒有生日的排最後。'birthday'＝依月、日由 1/1 排到 12/31；'age'＝依年齡（有年份比完整生日，只有月日時沿用試算表順序）
     const dir = OLDEST_FIRST ? 1 : -1;
-    const cmp = (a, b) => (a.b[2] && b.b[2])
+    const ageCmp = (a, b) => (a.b[2] && b.b[2])
       ? (a.b[2] - b.b[2]) || (a.b[0] - b.b[0]) || (a.b[1] - b.b[1]) || (a.i - b.i) : a.i - b.i;
-    members.sort((a, b) => (!a.b - !b.b) || (a.b ? dir : 1) * (a.b ? cmp(a, b) : a.i - b.i));
+    const mdCmp = (a, b) => (a.b[0] - b.b[0]) || (a.b[1] - b.b[1]) || (a.i - b.i);
+    members.sort((a, b) => (!a.b - !b.b) || (!a.b ? a.i - b.i : SORT_BY === 'age' ? dir * ageCmp(a, b) : mdCmp(a, b)));
 
     list.innerHTML = GROUPS.map(g => {
       const l = members.filter(p => p.g === g); if (!l.length) return '';
