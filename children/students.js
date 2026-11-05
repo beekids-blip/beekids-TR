@@ -40,10 +40,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---------- 學生名單 ----------
-  // C 欄（索引 2）＝姓名、E 欄（索引 4）＝年級，第一列是標題
+  // 版面：第 1 列＝標題（每個年級一欄），第 2 列＝「人數統計」，第 3 列起＝各年級的名單（由上往下）
+  // 依標題文字找欄位，欄位順序改了也沒關係；右邊「缺資料」「未領卡」等欄位不會被讀進來
+  const GRADES = [...KINDER, ...ELEM, '低出席'];
   function parseStudents(text) {
-    return parseRows(text).slice(1).map(c => ({ name: (c[2] || '').trim(), grade: (c[4] || '').trim() }))
-      .filter(s => s.name && s.name !== '函數保留格');
+    const rows = parseRows(text);
+    const head = (rows[0] || []).map(h => h.trim());
+    const body = rows.slice(1).filter(r => (r[0] || '').trim() !== '人數統計');
+    const out = [];
+    GRADES.forEach(g => {
+      const c = head.indexOf(g);
+      if (c < 0) return;
+      body.forEach(r => { const name = (r[c] || '').trim(); if (name) out.push({ name, grade: g }); });
+    });
+    return out;
   }
 
   async function loadStudents() {
