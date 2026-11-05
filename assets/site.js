@@ -96,10 +96,12 @@ document.querySelectorAll('[data-children]').forEach(el => {
   const list = el.dataset.children === 'root' ? NAV.slice(1) : (node && node.c) || [];
   if (!list.length) return el.remove();
   if (el.classList.contains('btns')) {          // 放在 hero 裡：用按鈕樣式
-    el.innerHTML = list.map((n, i) =>
-      `<a class="btn ${i ? 'line' : 'solid'}" href="${href(n.p)}">${n.t}</a>`).join('');
-    return;
-  }
+  const brk = +el.dataset.break || 0;         // data-break="2"：第 2 顆後面換行
+  el.innerHTML = list.map((n, i) =>
+    `<a class="btn line" href="${href(n.p)}">${n.t}</a>` + (brk && i === brk - 1 ? '<span class="btns-br"></span>' : '')
+  ).join('');
+  return;
+}
   el.className = 'cards';                       // 其他地方：卡片樣式
   el.innerHTML = list.map(n => `<a class="card" href="${href(n.p)}"><b>${n.t}</b></a>`).join('');
 });
