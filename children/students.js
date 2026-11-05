@@ -107,13 +107,16 @@ document.addEventListener('DOMContentLoaded', () => {
     setText('statKindergarten', k);
     setText('statTotal', e + k);
 
-    // 各年級人數：填進「幼兒」「小學」兩張卡片
+    // 各年級人數：填進「幼兒」「小學」兩張卡片，年級橫向排列，放不下才換行
     const fill = (id, grades) => {
       const el = document.getElementById(id);
       if (!el) return;
       const n = g => data.filter(s => s.grade === g).length;
-      el.innerHTML = grades.map(g => `<li>${g}：${n(g)}人</li>`).join('')
-        + `<li><b>小計：${grades.reduce((sum, g) => sum + n(g), 0)}人</b></li>`;
+      el.removeAttribute('style');
+      Object.assign(el.style, { listStyle: 'none', padding: '0', margin: '0', display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(7em, 1fr))', gap: '.2rem 1rem', lineHeight: '1.8' });
+      el.innerHTML = grades.map(g => `<li style="margin:0">${g}：${n(g)}人</li>`).join('')
+        + `<li style="margin:.3rem 0 0;grid-column:1/-1;border-top:1px solid #e2e8f0;padding-top:.3rem"><b>小計：${grades.reduce((sum, g) => sum + n(g), 0)}人</b></li>`;
     };
     fill('gradeKinder', KINDER);
     fill('gradeElem', ELEM);
