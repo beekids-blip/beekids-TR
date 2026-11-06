@@ -299,55 +299,36 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
   .site-footer div{flex-direction:column;align-items:center;text-align:center;gap:4px}}
 
 @media (max-width: 760px) {
-  /* Hero = 第一屏扣掉 Header，使用 svh 避免被網址列擠出畫面 */
+  /* 綠色區塊：至少等於第一屏（扣掉 Header），內容不夠高就用綠色補滿 */
   .hero {
-    height: calc(100vh - var(--head));          /* 舊瀏覽器備援 */
-    height: calc(100svh - var(--head));         /* 新瀏覽器：以「最小可視高度」計算 */
+    min-height: calc(100vh - var(--head));    /* 舊瀏覽器備援 */
+    min-height: calc(100svh - var(--head));   /* 新瀏覽器 */
     display: flex;
-    align-items: stretch;
-    overflow: hidden;
+    align-items: center;
   }
 
   .hero-in {
     width: 100%;
-    height: 100%;
-    padding: 20px 20px 24px;
-    gap: 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;   /* 由上往下排，不再置中擠出去 */
-    box-sizing: border-box;
+    padding: 32px 20px;
+    gap: 20px;
+    grid-template-columns: 1fr;
   }
 
   .hero h1 {
     font-size: 2.5rem;
-    margin: 0 0 4px;
+    margin-bottom: 8px;
   }
 
   .hero p {
     font-size: 1rem;
     line-height: 1.5;
-    margin: 0 0 8px;
+    margin-bottom: 14px;
   }
 
-  .hero .btns {
-    gap: 10px;
-  }
-
-  .btn {
-    padding: 9px 20px;
-  }
-
-  /* 照片吃掉剩餘空間，高度自動伸縮 */
-  .hero-photo {
-    flex: 1 1 0;
-    min-height: 0;        /* 關鍵：允許 flex 子元素縮小 */
-  }
-
+  /* 照片比例維持原樣（4:3），不限制高度 */
   .hero-photo img {
-    height: 100%;
+    aspect-ratio: 4/3;
     max-height: none;
-    aspect-ratio: auto;   /* 取消 4/3，改由剩餘高度決定 */
     object-fit: cover;
   }
 }
