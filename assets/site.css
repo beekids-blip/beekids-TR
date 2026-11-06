@@ -299,18 +299,8 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
   .site-footer div{flex-direction:column;align-items:center;text-align:center;gap:4px}}
 
 @media (max-width: 760px) {
-  /* 只調整綠色區塊：高度 = 第一屏扣掉 Header，內容維持原本排版 */
-  .hero {
-    min-height: calc(100vh - var(--head));    /* 舊瀏覽器備援 */
-    min-height: calc(100svh - var(--head));   /* 新瀏覽器 */
-    display: flex;
-    align-items: center;   /* 內容在綠色區塊內垂直置中 */
-  }
-
-  .hero-in {
-    width: 100%;           /* flex 子元素需要明確寬度，其餘 padding/gap 沿用原設定 */
-  }
-}
+  .hero {min-height: calc(100vh - var(--head));min-height: calc(100svh - var(--head));display: grid;align-content: center;}}
+  .hero-in {width: 100%;}}
 
 /* ---------- 手機版：六宮格維持六邊形 ---------- */
 @media (max-width:760px){
