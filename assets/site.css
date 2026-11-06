@@ -298,9 +298,27 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
   .home .card b{font-size:.95rem}
   .site-footer div{flex-direction:column;align-items:center;text-align:center;gap:4px}}
 
-@media (max-width:760px){
-  .hero{min-height: calc(100vh - var(--head));min-height: calc(100dvh - var(--head));display: flex;align-items: center;}
-  .hero-in {width: 100%;padding-top: 40px;padding-bottom: 40px;}}
+@media (max-width: 760px) {
+  /* 讓綠色大區塊剛好等於「視區高度 - 頂部 Header 高度」 */
+  .hero {
+    height: calc(100vh - var(--head));
+    height: calc(100dvh - var(--head));
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden; /* 防範內容突出來造成滾動條 */
+  }
+
+  /* 壓縮手機版內邊距與元件間距，確保內容不會撐高視窗 */
+  .hero-in {
+    width: 100%;
+    padding: 24px 20px !important; /* 縮減上下邊距 */
+    gap: 20px !important;          /* 縮小標題與圖片之間的距離 */
+  }
+
+  /* 縮小手機版 Hero 文字與描述 */
+  .hero h1 {margin-bottom: 8px !important;}
+  .hero p {margin-bottom: 16px !important;font-size: 1.1rem !important;  /* 稍微縮小字級適應手機 */line-height: 1.5 !important;}}
 
 /* ---------- 手機版：六宮格維持六邊形 ---------- */
 @media (max-width:760px){
