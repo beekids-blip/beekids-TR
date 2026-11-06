@@ -299,26 +299,44 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
   .site-footer div{flex-direction:column;align-items:center;text-align:center;gap:4px}}
 
 @media (max-width: 760px) {
-  /* 讓綠色大區塊剛好等於「視區高度 - 頂部 Header 高度」 */
+  /* 1. 強制讓 Hero 區塊精確等於「滿頁 100vh 扣除 Header 64px」 */
   .hero {
-    height: calc(100vh - var(--head));
-    height: calc(100dvh - var(--head));
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    overflow: hidden; /* 防範內容突出來造成滾動條 */
+    height: calc(100vh - var(--head, 64px)) !important;
+    height: calc(100dvh - var(--head, 64px)) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
-  /* 壓縮手機版內邊距與元件間距，確保內容不會撐高視窗 */
+  /* 2. 徹底重設內邊距與間距，防止照片太高擠出視窗 */
   .hero-in {
-    width: 100%;
-    padding: 24px 20px !important; /* 縮減上下邊距 */
-    gap: 20px !important;          /* 縮小標題與圖片之間的距離 */
+    width: 100% !important;
+    height: 100% !important;
+    padding: 16px 20px !important;
+    gap: 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
   }
 
-  /* 縮小手機版 Hero 文字與描述 */
-  .hero h1 {margin-bottom: 8px !important;}
-  .hero p {margin-bottom: 16px !important;font-size: 1.1rem !important;  /* 稍微縮小字級適應手機 */line-height: 1.5 !important;}}
+  /* 3. 手機版適度壓縮文字與圖片尺寸 */
+  .hero h1 {
+    font-size: 2.5rem !important;
+    margin-bottom: 6px !important;
+  }
+  .hero p {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 12px !important;
+  }
+  .hero-photo img {
+    max-height: 35vh !important; /* 限制合照圖片在手機上的最大高度 */
+    object-fit: cover !important;
+  }
+}
 
 /* ---------- 手機版：六宮格維持六邊形 ---------- */
 @media (max-width:760px){
