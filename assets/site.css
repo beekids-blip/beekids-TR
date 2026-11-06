@@ -298,6 +298,10 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
   .home .card b{font-size:.95rem}
   .site-footer div{flex-direction:column;align-items:center;text-align:center;gap:4px}}
 
+@media (max-width:760px){
+  .hero{min-height: calc(100vh - var(--head));min-height: calc(100dvh - var(--head));display: flex;align-items: center;}
+  .hero-in {width: 100%;padding-top: 40px;padding-bottom: 40px;}}
+
 /* ---------- 手機版：六宮格維持六邊形 ---------- */
 @media (max-width:760px){
   :root{--hw:calc((100vw - 60px) / 3.5)}
