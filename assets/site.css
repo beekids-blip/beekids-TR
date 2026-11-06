@@ -265,3 +265,13 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
 .cal-sub{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;background:var(--mist);border-radius:12px;padding:18px 22px;margin:1.6rem 0 1rem}
 .cal-sub p{margin:.2rem 0 0;color:var(--muted);font-size:.92rem}
 .cal-sub .btn.line{color:var(--garden);border-color:var(--garden)}
+
+/* ---------- 載入狀態標示 ---------- */
+.load-badge{position:fixed;right:16px;bottom:16px;z-index:60;display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:var(--garden);color:#fff;font-size:.9rem;font-weight:500;box-shadow:0 6px 18px rgba(20,53,40,.25);transition:opacity .4s}
+.load-badge[hidden]{display:none}
+.load-badge.ok{background:var(--leaf)}
+.load-badge.fail{background:#8C3B2A}
+.load-badge.out{opacity:0;pointer-events:none}
+.load-badge .spin{width:14px;height:14px;border:2px solid rgba(255,255,255,.35);border-top-color:var(--honey);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.load-badge .spin{animation-duration:2.4s}}
