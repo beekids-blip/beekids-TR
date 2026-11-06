@@ -193,7 +193,6 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
   .hero-in{padding:64px 24px 56px;grid-template-columns:1fr;gap:32px}  .honey{grid-template-columns:1fr;width:auto;padding:0;gap:10px}
   .hex{width:auto;height:auto;clip-path:none;border-radius:10px;padding:14px 18px;align-items:flex-start;text-align:left}
   .hex:nth-child(n+4){margin-top:0;transform:none}
-  .facts{grid-template-columns:1fr}
   .split,.split.has-logo{grid-template-columns:1fr}
   .links.row{grid-template-columns:1fr}
 }
@@ -288,7 +287,7 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
   h2 + *{margin-top:.3rem!important}
   h1+h2{margin-top:2rem}
   .time{font-size:.9em}
-  .facts{grid-template-columns:max-content 1fr;gap:6px 14px;font-size:.95rem}
+  .facts{grid-template-columns:5.5em 1fr;gap:6px 10px;font-size:.95rem}
   .links.row{grid-template-columns:1fr 1fr;gap:8px}
   .links.row li:first-child{grid-column:1/-1}
   .links.row a{padding:10px 12px;font-size:.95rem}
