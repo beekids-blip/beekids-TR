@@ -299,37 +299,16 @@ h3{font-size:1.25rem;font-weight:700;margin:2.2rem 0 .6rem;color:var(--leaf)}
   .site-footer div{flex-direction:column;align-items:center;text-align:center;gap:4px}}
 
 @media (max-width: 760px) {
-  /* 綠色區塊：至少等於第一屏（扣掉 Header），內容不夠高就用綠色補滿 */
+  /* 只調整綠色區塊：高度 = 第一屏扣掉 Header，內容維持原本排版 */
   .hero {
     min-height: calc(100vh - var(--head));    /* 舊瀏覽器備援 */
     min-height: calc(100svh - var(--head));   /* 新瀏覽器 */
     display: flex;
-    align-items: center;
+    align-items: center;   /* 內容在綠色區塊內垂直置中 */
   }
 
   .hero-in {
-    width: 100%;
-    padding: 32px 20px;
-    gap: 20px;
-    grid-template-columns: 1fr;
-  }
-
-  .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 8px;
-  }
-
-  .hero p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 14px;
-  }
-
-  /* 照片比例維持原樣（4:3），不限制高度 */
-  .hero-photo img {
-    aspect-ratio: 4/3;
-    max-height: none;
-    object-fit: cover;
+    width: 100%;           /* flex 子元素需要明確寬度，其餘 padding/gap 沿用原設定 */
   }
 }
 
